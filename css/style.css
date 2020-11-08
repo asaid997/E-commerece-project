@@ -1,0 +1,217 @@
+/* <div id="nav-bar">
+<i class="nav-items" id="Logo">Logo</i>
+<div class="nav-items">All products</div>
+<div class="nav-items">Cart</div>
+<div class="nav-items">About us</div>
+</div>
+<div id="content-container"></div> */
+
+#nav-bar {
+    display: grid;
+    grid-template-columns: 0fr repeat(3, 1fr);
+    height: fit-content;
+}
+
+.nav-items ,.logo{
+    border: 2px solid #25041D;
+    border-left: 1px solid #25041D;
+    border-right: 1px solid #25041D;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-color: #5C0A47;
+    height: 5vh;
+    color: white;
+    font-size: 5vh;
+}
+.nav-items{
+    font-size: 2vh;
+    font-style: italic;
+    cursor: pointer;
+}
+
+
+.clicked-nav-item,.nav-items:hover {
+    border-bottom: 0;
+    background-color: #F4F9E9;
+    color: black;
+}
+
+#content-container {
+
+}
+
+.all-items-container {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 10px;
+    gap: 2vh;
+}
+
+.item-container {
+    position: relative;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    width: 17vw;
+    height: 35vh;
+    border-radius: 10px;
+    border: 2px solid #37062B;
+
+    box-shadow: 2px 2px 8px #37062B;
+
+}
+.item-container:hover{
+    box-shadow: 2px 2px 8px #9C072C;
+    border: 2px solid #9C072C;
+}
+
+.name-price-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #37062B;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.image {
+    width: 100%;
+    height: 30vh;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.addToCart {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    background-color: #CED3C5;
+    visibility: hidden;
+    border-radius: 20px;
+    width: 3vh;
+    height: 3vh;
+    font-size: 2vh;
+    color: #EC0B43;
+    cursor: pointer;
+}
+.addToCart:hover{
+    background-color: #5C0A47;
+}
+.addToCart:active{
+    background-color: #EEF0EB;
+}
+
+.name,.price {
+    display: grid;
+    justify-content: center;
+    align-self: center;
+    color: white;
+}
+
+
+
+
+
+.cart-container{
+    display: grid;
+    margin-left: 2vw;
+    grid-template-rows: auto;
+    width: 100%;
+    row-gap: 1vh;
+    position: relative;
+
+}
+.cart-product-container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    position: relative;
+    height: 20vh;
+    width: fit-content;
+    border: 2px solid black;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px #37062B;
+}
+.cart-product-container:hover{
+    box-shadow: 2px 2px 8px #9C072C;
+    border: 2px solid #9C072C;
+}
+.removeFromCart{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 3vh;
+    height: 3vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    font-size: 2.5vh;
+    color: #D60A3D;
+    cursor: pointer;
+    visibility: hidden;
+}
+.removeFromCart:hover{
+    font-size: 3vh;
+}
+.cart-name-price-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    background-color: #37062B;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.cart-image{
+    width: 20vw;
+    height: 100%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.cart-text{
+    align-self: center;
+    color: white;
+    align-self: center;
+    justify-self: center;
+    font-size: 1.5vh;
+}
+.total-price{
+    position: absolute;
+    top: 2vh;
+    right: 5vw;
+    border: 2px solid grey;
+    box-shadow: 2px 2px 8px grey;
+    padding: 10px;
+    font-style: italic;
+}
+
+.text{
+    font-size: 4vh;
+    margin-left: 0.5vw;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    font-style: italic;
+}
+
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #333; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 8px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 50%; /* 30px from the bottom */
+  }
+  
+  /* Show the snackbar when clicking on a button (class added with JavaScript) */
+  #snackbar.show {
+    visibility: visible; /* Show the snackbar */
+  }
+  
