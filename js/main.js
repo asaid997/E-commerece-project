@@ -15,8 +15,10 @@ $('#about').on("click", function () {
 })
 
 
-
+let myTimeout
 const Toast = function (message) {
+    clearTimeout(myTimeout)
+
     // Get the snackbar DIV
     var x = document.getElementById("snackbar");
     x.innerHTML = message
@@ -25,7 +27,7 @@ const Toast = function (message) {
     x.className = "show";
 
     // After 1.4 seconds, remove the show class from DIV
-    setTimeout(function () { x.className = x.className.replace("show", ""); }, 1400);
+    myTimeout = setTimeout(function () { x.className = x.className.replace("show", ""); }, 1400);
 }
 
 $('#content-container').on("click", ".addToCart", function () {
