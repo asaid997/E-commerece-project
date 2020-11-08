@@ -1,11 +1,3 @@
-/* <div id="nav-bar">
-<i class="nav-items" id="Logo">Logo</i>
-<div class="nav-items">All products</div>
-<div class="nav-items">Cart</div>
-<div class="nav-items">About us</div>
-</div>
-<div id="content-container"></div> */
-
 #nav-bar {
     display: grid;
     grid-template-columns: 0fr repeat(3, 1fr);
