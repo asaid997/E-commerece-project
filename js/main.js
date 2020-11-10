@@ -1,17 +1,17 @@
-const RendererMod = Renderer()
+const renderer = Renderer()
 
-const PManager = ProductManager()
+const productManager = ProductManager()
 
 $('#all').on("click", function () {
-    RendererMod.renderProducts(PManager.getProducts())
+    renderer.renderProducts(productManager.getProducts())
 })
 
 $('#cart').on("click", function () {
-    RendererMod.renderCart(PManager.getCart())
+    renderer.renderCart(productManager.getCart())
 })
 
 $('#about').on("click", function () {
-    RendererMod.renderAbout()
+    renderer.renderAbout()
 })
 
 
@@ -20,27 +20,27 @@ const Toast = function (message) {
     clearTimeout(myTimeout)
 
     // Get the snackbar DIV
-    var x = document.getElementById("snackbar");
-    x.innerHTML = message
+    let snackBar = document.getElementById("snackbar");
+    snackBar.innerHTML = message
     
     // Add the "show" class to DIV
-    x.className = "show";
+    snackBar.className = "show";
 
     // After 1.4 seconds, remove the show class from DIV
-    myTimeout = setTimeout(function () { x.className = x.className.replace("show", ""); }, 1400);
+    myTimeout = setTimeout(function () { snackBar.className = snackBar.className.replace("show", ""); }, 1400);
 }
 
 $('#content-container').on("click", ".addToCart", function () {
     const id = $(this).closest('.item-container').data('id')
-    PManager.addToCart(id)
+    productManager.addToCart(id)
     const name = $(this).closest('.item-container').find('.name').text()
     Toast(`Added ${name} to cart`)
 })
 
 $('#content-container').on("click", ".removeFromCart", function () {
     const id = $(this).closest('.cart-product-container').data('id')
-    PManager.removeFromCart(id)
-    RendererMod.renderCart(PManager.getCart())
+    productManager.removeFromCart(id)
+    renderer.renderCart(productManager.getCart())
 })
 
 

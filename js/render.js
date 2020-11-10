@@ -1,13 +1,13 @@
 const Renderer = function () {
     const container = $('#content-container')
 
-    const createElement = function (type, class1, text) {
+    const createElement = function (type, style, text) {
         const element = $(`<${type}>${text}</${type}>`)
-        element.addClass(class1)
+        element.addClass(style)
         return element
     }
-    const createImageElement = function (url, class1) {
-        const element = createElement("img", class1, "")
+    const createImageElement = function (url, style) {
+        const element = createElement("img", style, "")
         element.attr('src', url)
         return element
     }
@@ -48,7 +48,7 @@ const Renderer = function () {
     }
 
     const renderProducts = function (products) {
-        container.text("")
+        container.empty()
         const allProductsElements = createElement("div", "all-items-container", "")
         container.append(allProductsElements)
 
@@ -87,7 +87,7 @@ const Renderer = function () {
     const renderCart = function (cart) {
         container.text("")
 
-        const text = createElement('div',"text","")
+        const text = createElement('div', "text", "")
         container.append(text)
 
         if (cart.length > 0) {
@@ -95,7 +95,7 @@ const Renderer = function () {
 
             const cartContainer = createElement("div", "cart-container", "")
             container.append(cartContainer)
-            
+
             let sum = 0
 
             for (let item of cart) {
@@ -105,7 +105,7 @@ const Renderer = function () {
 
                 sum += item.price
             }
-            const total = createElement("div","total-price",`Total to pay: ${sum}$`)
+            const total = createElement("div", "total-price", `Total to pay: ${sum}$`)
             cartContainer.append(total)
         }
         else {
